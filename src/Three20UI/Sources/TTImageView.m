@@ -198,6 +198,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)reload {
+  if (nil != _request) {
+    [_request cancel];
+    TT_RELEASE_SAFELY(_request);
+  }
   if (nil == _request && nil != _urlPath) {
     UIImage* image = [[TTURLCache sharedCache] imageForURL:_urlPath];
 
