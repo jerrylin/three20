@@ -49,6 +49,8 @@
 @property (nonatomic, readonly) UINavigationBar*  navigatorBar;
 @property (nonatomic, retain)   UIView*           originView;
 
+@property (nonatomic, copy)     NSString*         defaultText;
+
 @property (nonatomic, assign)   id<TTPostControllerDelegate> delegate;
 
 /**
