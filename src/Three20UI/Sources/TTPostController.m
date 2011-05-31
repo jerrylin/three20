@@ -51,6 +51,7 @@ static const CGFloat kMarginY = 6;
 
 @synthesize result      = _result;
 @synthesize textView    = _textView;
+@synthesize screenView  = _screenView;
 @synthesize originView  = _originView;
 @synthesize defaultText = _defaultText;
 
