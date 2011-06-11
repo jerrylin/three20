@@ -38,6 +38,8 @@
   UITextView*       _textView;
   TTActivityLabel*  _activityView;
 
+  BOOL              _failedWithError;
+
   BOOL              _originalStatusBarHidden;
   UIStatusBarStyle  _originalStatusBarStyle;
 

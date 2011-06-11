@@ -504,6 +504,7 @@ static const CGFloat kMarginY = 6;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)post {
+  _failedWithError = NO;
   BOOL shouldDismiss = [self willPostText:_textView.text];
   if ([_delegate respondsToSelector:@selector(postController:willPostText:)]) {
     shouldDismiss = [_delegate postController:self willPostText:_textView.text];
@@ -512,7 +513,7 @@ static const CGFloat kMarginY = 6;
   if (shouldDismiss) {
     [self dismissWithResult:nil animated:YES];
 
-  } else {
+  } else if (!_failedWithError) {
     [self showActivity:[self titleForActivity]];
   }
 }
@@ -589,6 +590,7 @@ static const CGFloat kMarginY = 6;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)failWithError:(NSError*)error {
   [self showActivity:nil];
+  _failedWithError = YES;
 
   NSString* title = [self titleForError:error];
   if (title.length) {
